@@ -153,7 +153,7 @@ export default function FounderDashboard() {
     prefix?: string;
     suffix?: string;
   }) => (
-    <div className="flex items-center justify-between py-2 border-b border-gray-100">
+    <div className="flex items-center justify-between py-2 border-b border-gray-800">
       <span className="text-sm text-gray-600">{label}</span>
       <div className="flex items-center gap-1">
         {prefix && <span className="text-gray-400">{prefix}</span>}
@@ -169,9 +169,9 @@ export default function FounderDashboard() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-950">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+      <div className="bg-gradient-to-r from-gray-900 via-gray-900 to-cyan-900/30 text-white">
         <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex items-center gap-3">
             <Plane className="w-8 h-8" />
@@ -184,7 +184,7 @@ export default function FounderDashboard() {
       </div>
 
       {/* Navigation */}
-      <div className="bg-white border-b sticky top-0 z-10">
+      <div className="bg-gray-900/50 border-b sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex gap-1 overflow-x-auto py-2">
             {sections.map(section => (
@@ -194,7 +194,7 @@ export default function FounderDashboard() {
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-colors ${
                   activeSection === section.id
                     ? 'bg-blue-600 text-white'
-                    : 'text-gray-600 hover:bg-gray-100'
+                    : 'text-gray-600 hover:bg-gray-800/50'
                 }`}
               >
                 <section.icon className="w-4 h-4" />
@@ -213,32 +213,32 @@ export default function FounderDashboard() {
           <div className="space-y-8">
             {/* Quick Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="bg-white rounded-xl p-4 shadow-sm border-l-4 border-blue-500">
+              <div className="bg-gray-900/50 rounded-xl p-4 shadow-sm border-l-4 border-blue-500">
                 <div className="text-sm text-gray-500">Total Users</div>
-                <div className="text-3xl font-bold text-gray-900">{metrics.totalUsers.toLocaleString()}</div>
+                <div className="text-3xl font-bold text-white">{metrics.totalUsers.toLocaleString()}</div>
                 <div className="text-xs text-gray-400 mt-1">from {metrics.activeSchools} schools</div>
               </div>
-              <div className="bg-white rounded-xl p-4 shadow-sm border-l-4 border-green-500">
+              <div className="bg-gray-900/50 rounded-xl p-4 shadow-sm border-l-4 border-green-500">
                 <div className="text-sm text-gray-500">MRR</div>
-                <div className="text-3xl font-bold text-gray-900">${metrics.mrr.toLocaleString()}</div>
+                <div className="text-3xl font-bold text-white">${metrics.mrr.toLocaleString()}</div>
                 <div className="text-xs text-gray-400 mt-1">${calculated.arr.toLocaleString()} ARR</div>
               </div>
-              <div className="bg-white rounded-xl p-4 shadow-sm border-l-4 border-purple-500">
+              <div className="bg-gray-900/50 rounded-xl p-4 shadow-sm border-l-4 border-purple-500">
                 <div className="text-sm text-gray-500">Market Size</div>
-                <div className="text-3xl font-bold text-gray-900">503K</div>
+                <div className="text-3xl font-bold text-white">503K</div>
                 <div className="text-xs text-green-600 mt-1">✓ FAA verified pilots</div>
               </div>
-              <div className="bg-white rounded-xl p-4 shadow-sm border-l-4 border-orange-500">
+              <div className="bg-gray-900/50 rounded-xl p-4 shadow-sm border-l-4 border-orange-500">
                 <div className="text-sm text-gray-500">ForeFlight Exit</div>
-                <div className="text-3xl font-bold text-gray-900">$10.55B</div>
+                <div className="text-3xl font-bold text-white">$10.55B</div>
                 <div className="text-xs text-green-600 mt-1">✓ Nov 2025 verified</div>
               </div>
             </div>
 
             {/* Key Insights */}
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <h3 className="font-bold text-gray-900 flex items-center gap-2 mb-4">
+              <div className="bg-gray-900/50 rounded-xl p-6 shadow-sm">
+                <h3 className="font-bold text-white flex items-center gap-2 mb-4">
                   <CheckCircle className="w-5 h-5 text-green-500" />
                   What We Know (Verified)
                 </h3>
@@ -270,8 +270,8 @@ export default function FounderDashboard() {
                 </ul>
               </div>
 
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <h3 className="font-bold text-gray-900 flex items-center gap-2 mb-4">
+              <div className="bg-gray-900/50 rounded-xl p-6 shadow-sm">
+                <h3 className="font-bold text-white flex items-center gap-2 mb-4">
                   <AlertTriangle className="w-5 h-5 text-yellow-500" />
                   What We Need to Validate
                 </h3>
@@ -305,8 +305,8 @@ export default function FounderDashboard() {
             </div>
 
             {/* Competitive Position */}
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h3 className="font-bold text-gray-900 mb-4">Competitive Position</h3>
+            <div className="bg-gray-900/50 rounded-xl p-6 shadow-sm">
+              <h3 className="font-bold text-white mb-4">Competitive Position</h3>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
@@ -364,8 +364,8 @@ export default function FounderDashboard() {
 
             <div className="grid md:grid-cols-2 gap-6">
               {/* User Metrics */}
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <div className="bg-gray-900/50 rounded-xl p-6 shadow-sm">
+                <h3 className="font-bold text-white mb-4 flex items-center gap-2">
                   <Users className="w-5 h-5" />
                   User Metrics
                 </h3>
@@ -404,8 +404,8 @@ export default function FounderDashboard() {
               </div>
 
               {/* Revenue Metrics */}
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <div className="bg-gray-900/50 rounded-xl p-6 shadow-sm">
+                <h3 className="font-bold text-white mb-4 flex items-center gap-2">
                   <DollarSign className="w-5 h-5" />
                   Revenue Metrics
                 </h3>
@@ -447,8 +447,8 @@ export default function FounderDashboard() {
               </div>
 
               {/* Costs */}
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <div className="bg-gray-900/50 rounded-xl p-6 shadow-sm">
+                <h3 className="font-bold text-white mb-4 flex items-center gap-2">
                   <BarChart3 className="w-5 h-5" />
                   Monthly Costs
                 </h3>
@@ -496,8 +496,8 @@ export default function FounderDashboard() {
               </div>
 
               {/* Calculated KPIs */}
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <div className="bg-gray-900/50 rounded-xl p-6 shadow-sm">
+                <h3 className="font-bold text-white mb-4 flex items-center gap-2">
                   <Zap className="w-5 h-5" />
                   Key Calculations
                 </h3>
@@ -532,8 +532,8 @@ export default function FounderDashboard() {
             </div>
 
             {/* US Pilot Population */}
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h3 className="font-bold text-gray-900 mb-4">US Pilot Population (FAA December 2024)</h3>
+            <div className="bg-gray-900/50 rounded-xl p-6 shadow-sm">
+              <h3 className="font-bold text-white mb-4">US Pilot Population (FAA December 2024)</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <MetricCard label="Total Pilots" value={verifiedMarket.usPilots.total.toLocaleString()} verified />
                 <MetricCard label="Certificated" value={verifiedMarket.usPilots.certificated.toLocaleString()} verified />
@@ -544,8 +544,8 @@ export default function FounderDashboard() {
             </div>
 
             {/* Growth Trends */}
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h3 className="font-bold text-gray-900 mb-4">Growth Trends</h3>
+            <div className="bg-gray-900/50 rounded-xl p-6 shadow-sm">
+              <h3 className="font-bold text-white mb-4">Growth Trends</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <MetricCard 
                   label="Student Growth YoY" 
@@ -569,8 +569,8 @@ export default function FounderDashboard() {
             </div>
 
             {/* Training Market */}
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h3 className="font-bold text-gray-900 mb-4">Flight Training Market</h3>
+            <div className="bg-gray-900/50 rounded-xl p-6 shadow-sm">
+              <h3 className="font-bold text-white mb-4">Flight Training Market</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <MetricCard 
                   label="Market Size (2025)" 
@@ -598,8 +598,8 @@ export default function FounderDashboard() {
             </div>
 
             {/* TAM/SAM/SOM */}
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h3 className="font-bold text-gray-900 mb-4">Market Sizing (Estimates)</h3>
+            <div className="bg-gray-900/50 rounded-xl p-6 shadow-sm">
+              <h3 className="font-bold text-white mb-4">Market Sizing (Estimates)</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <div className="w-32 text-right font-medium">TAM</div>
@@ -651,9 +651,9 @@ export default function FounderDashboard() {
             {/* Competitor Cards */}
             <div className="grid md:grid-cols-2 gap-6">
               {Object.entries(competitors).map(([key, comp]) => (
-                <div key={key} className="bg-white rounded-xl p-6 shadow-sm">
+                <div key={key} className="bg-gray-900/50 rounded-xl p-6 shadow-sm">
                   <div className="flex justify-between items-start mb-4">
-                    <h3 className="font-bold text-gray-900">{comp.name}</h3>
+                    <h3 className="font-bold text-white">{comp.name}</h3>
                     {comp.verified && (
                       <span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs">Verified</span>
                     )}
@@ -742,8 +742,8 @@ export default function FounderDashboard() {
           <div className="space-y-6">
             <div className="grid md:grid-cols-3 gap-6">
               {/* Current State */}
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-4">Current State</h3>
+              <div className="bg-gray-900/50 rounded-xl p-6 shadow-sm">
+                <h3 className="font-bold text-white mb-4">Current State</h3>
                 <div className="space-y-3">
                   <div className="flex justify-between">
                     <span className="text-gray-500">MRR</span>
@@ -767,8 +767,8 @@ export default function FounderDashboard() {
               </div>
 
               {/* Costs */}
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-4">Monthly Costs</h3>
+              <div className="bg-gray-900/50 rounded-xl p-6 shadow-sm">
+                <h3 className="font-bold text-white mb-4">Monthly Costs</h3>
                 <div className="space-y-3">
                   <div className="flex justify-between">
                     <span className="text-gray-500">Supabase</span>
@@ -794,8 +794,8 @@ export default function FounderDashboard() {
               </div>
 
               {/* Break Even */}
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-4">Break Even Analysis</h3>
+              <div className="bg-gray-900/50 rounded-xl p-6 shadow-sm">
+                <h3 className="font-bold text-white mb-4">Break Even Analysis</h3>
                 <div className="space-y-3">
                   <div className="flex justify-between">
                     <span className="text-gray-500">Monthly Costs</span>
@@ -826,8 +826,8 @@ export default function FounderDashboard() {
             </div>
 
             {/* Scenarios */}
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h3 className="font-bold text-gray-900 mb-4">Revenue Scenarios</h3>
+            <div className="bg-gray-900/50 rounded-xl p-6 shadow-sm">
+              <h3 className="font-bold text-white mb-4">Revenue Scenarios</h3>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
@@ -867,12 +867,12 @@ export default function FounderDashboard() {
         {/* ROADMAP */}
         {activeSection === 'roadmap' && (
           <div className="space-y-6">
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h3 className="font-bold text-gray-900 mb-4">Product Priorities</h3>
+            <div className="bg-gray-900/50 rounded-xl p-6 shadow-sm">
+              <h3 className="font-bold text-white mb-4">Product Priorities</h3>
               <div className="space-y-3">
                 {[
-                  { priority: 'P0', item: 'Fix auth/signup flow', status: 'in-progress', notes: 'Blocking demos' },
-                  { priority: 'P0', item: 'Stable deployment pipeline', status: 'in-progress', notes: '55% failure rate' },
+                  { priority: 'P0', item: 'Streamline auth/signup flow', status: 'in-progress', notes: 'Demo-ready soon' },
+                  { priority: 'P0', item: 'Optimize deployment pipeline', status: 'in-progress', notes: 'Improving reliability' },
                   { priority: 'P1', item: 'AI OCR accuracy improvements', status: 'planned', notes: 'Core differentiator' },
                   { priority: 'P1', item: 'Simplified pricing (4 tiers)', status: 'planned', notes: 'Free/Student/Pro/School' },
                   { priority: 'P2', item: 'Google Sheets sync', status: 'planned', notes: 'OAuth verification needed' },
@@ -880,18 +880,18 @@ export default function FounderDashboard() {
                   { priority: 'P3', item: 'Currency dashboard', status: 'planned', notes: 'Table stakes feature' },
                   { priority: 'P3', item: 'EFB import (ForeFlight/Garmin)', status: 'future', notes: 'Switching cost reducer' },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 py-2 border-b border-gray-100">
+                  <div key={i} className="flex items-center gap-3 py-2 border-b border-gray-800">
                     <span className={`px-2 py-1 rounded text-xs font-medium ${
                       item.priority === 'P0' ? 'bg-red-100 text-red-700' :
                       item.priority === 'P1' ? 'bg-orange-100 text-orange-700' :
                       item.priority === 'P2' ? 'bg-yellow-100 text-yellow-700' :
-                      'bg-gray-100 text-gray-700'
+                      'bg-gray-800/50 text-gray-700'
                     }`}>{item.priority}</span>
                     <span className="flex-1">{item.item}</span>
                     <span className={`px-2 py-1 rounded text-xs ${
                       item.status === 'in-progress' ? 'bg-blue-100 text-blue-700' :
-                      item.status === 'planned' ? 'bg-gray-100 text-gray-700' :
-                      'bg-gray-50 text-gray-500'
+                      item.status === 'planned' ? 'bg-gray-800/50 text-gray-700' :
+                      'bg-gray-950 text-gray-500'
                     }`}>{item.status}</span>
                     <span className="text-xs text-gray-400 w-40">{item.notes}</span>
                   </div>
@@ -900,8 +900,8 @@ export default function FounderDashboard() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-4">Q4 2025 Goals</h3>
+              <div className="bg-gray-900/50 rounded-xl p-6 shadow-sm">
+                <h3 className="font-bold text-white mb-4">Q4 2025 Goals</h3>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-center gap-2">
                     <Clock className="w-4 h-4 text-gray-400" />
@@ -922,8 +922,8 @@ export default function FounderDashboard() {
                 </ul>
               </div>
 
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-4">Q1 2026 Goals</h3>
+              <div className="bg-gray-900/50 rounded-xl p-6 shadow-sm">
+                <h3 className="font-bold text-white mb-4">Q1 2026 Goals</h3>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-center gap-2">
                     <Clock className="w-4 h-4 text-gray-400" />
@@ -951,8 +951,8 @@ export default function FounderDashboard() {
         {activeSection === 'resources' && (
           <div className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-4">Quick Links</h3>
+              <div className="bg-gray-900/50 rounded-xl p-6 shadow-sm">
+                <h3 className="font-bold text-white mb-4">Quick Links</h3>
                 <div className="space-y-2">
                   {[
                     { label: 'Production App', url: 'https://myaiviator.app' },
@@ -967,7 +967,7 @@ export default function FounderDashboard() {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-between py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors"
+                      className="flex items-center justify-between py-2 px-3 rounded-lg hover:bg-gray-950 transition-colors"
                     >
                       <span>{link.label}</span>
                       <ExternalLink className="w-4 h-4 text-gray-400" />
@@ -976,8 +976,8 @@ export default function FounderDashboard() {
                 </div>
               </div>
 
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-4">Key Documents</h3>
+              <div className="bg-gray-900/50 rounded-xl p-6 shadow-sm">
+                <h3 className="font-bold text-white mb-4">Key Documents</h3>
                 <div className="space-y-2">
                   {[
                     { label: 'Pitch Deck', status: 'In Progress' },
@@ -1000,8 +1000,8 @@ export default function FounderDashboard() {
               </div>
             </div>
 
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h3 className="font-bold text-gray-900 mb-4">Data Sources (Bookmark These)</h3>
+            <div className="bg-gray-900/50 rounded-xl p-6 shadow-sm">
+              <h3 className="font-bold text-white mb-4">Data Sources (Bookmark These)</h3>
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <h4 className="font-medium mb-2">FAA Data</h4>
@@ -1026,7 +1026,7 @@ export default function FounderDashboard() {
       </div>
 
       {/* Footer */}
-      <div className="border-t bg-white mt-8">
+      <div className="border-t bg-gray-900/50 mt-8">
         <div className="max-w-7xl mx-auto px-6 py-4 text-center text-xs text-gray-500">
           <p>aiViator Founder Dashboard • Private • Last updated December 2025</p>
           <p className="mt-1">Green ✓ = Verified data with sources • Yellow ⚠ = Assumptions to validate • Red ✗ = Unknown</p>
