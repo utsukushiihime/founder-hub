@@ -20,8 +20,9 @@ export default function FounderDashboard() {
     freeUsers: 1000,
     activeSchools: 3,
     mrr: 0,
-    studentPrice: 49,
-    proPrice: 99,
+    starterPrice: 5,
+    plusPrice: 10,
+    proPrice: 20,
     weeklySignups: 0,
     weeklyChurn: 0,
     conversionRate: 0,
@@ -66,7 +67,7 @@ export default function FounderDashboard() {
       strengths: ['Windows support', 'Affordable'],
       gaps: ['Outdated', 'Limited features'], verified: false },
     { name: 'aiViator', logo: '🚀', type: 'AI-Powered Logbook', users: metrics.totalUsers,
-      pricing: { student: metrics.studentPrice, pro: metrics.proPrice }, platform: 'All (PWA)',
+      pricing: { free: 0, starter: 5, plus: 10, pro: 20 }, platform: 'All (PWA)',
       hasOCR: true, hasCrossPlatform: true, threat: 'us', color: '#06B6D4',
       strengths: ['AI Photo OCR (unique)', 'B2B distribution', 'Cross-platform', 'Price advantage'],
       gaps: ['Building awareness', 'Scaling team'], verified: true },
@@ -100,7 +101,7 @@ export default function FounderDashboard() {
   const calculated = {
     totalMonthlyCosts: metrics.monthlySupabase + metrics.monthlyVercel + metrics.monthlyAI + metrics.monthlyOther,
     arr: metrics.mrr * 12,
-    usersToBreakeven: Math.ceil((metrics.monthlySupabase + metrics.monthlyVercel + metrics.monthlyAI + metrics.monthlyOther) / (metrics.proPrice / 12)),
+    usersToBreakeven: Math.ceil((metrics.monthlySupabase + metrics.monthlyVercel + metrics.monthlyAI + metrics.monthlyOther) / (10)),
     marketPenetration: ((metrics.totalUsers / verifiedMarket.pilots.total) * 100).toFixed(4),
   };
 
@@ -218,7 +219,7 @@ export default function FounderDashboard() {
                 </h3>
                 <ul className="space-y-2 text-sm">
                   {['Our actual conversion rate', 'Willingness to pay for OCR', 'Long-term churn rate',
-                    'B2B acquisition cost/effort', 'Price sensitivity ($49 vs $99)', '% pilots using digital logbooks'
+                    'B2B acquisition cost/effort', 'Price sensitivity ($5-$20/mo tiers)', '% pilots using digital logbooks'
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2 text-gray-300">
                       <span className="text-yellow-500">⚠</span>{item}
@@ -232,7 +233,7 @@ export default function FounderDashboard() {
                 </h3>
                 <ul className="space-y-2 text-sm">
                   {[{ t: 'AI Photo OCR', n: 'Unique' }, { t: 'True Cross-Platform', n: 'Web+iOS+Android' },
-                    { t: 'B2B Distribution', n: '$0 CAC' }, { t: '60% Cheaper', n: '$99 vs $240' },
+                    { t: 'B2B Distribution', n: '$0 CAC' }, { t: '50% Cheaper', n: '$120/yr vs $240' },
                     { t: 'Modern Stack', n: 'Fast iteration' }, { t: 'Flight School Focus', n: 'Underserved' }
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
@@ -514,7 +515,7 @@ export default function FounderDashboard() {
               <h3 className="font-bold text-white mb-4">Pricing Comparison</h3>
               <ResponsiveContainer width="100%" height={250}>
                 <BarChart data={[
-                  { name: 'aiViator Pro', price: metrics.proPrice, fill: '#06B6D4' },
+                  { name: 'aiViator Plus', price: 120, fill: '#06B6D4' },
                   { name: 'LogTen Basic', price: 79.99, fill: '#8B5CF6' },
                   { name: 'LogTen Pro', price: 129.99, fill: '#8B5CF6' },
                   { name: 'FF Basic', price: 119.99, fill: '#3B82F6' },
@@ -533,11 +534,11 @@ export default function FounderDashboard() {
               </ResponsiveContainer>
               <div className="mt-4 grid md:grid-cols-3 gap-4">
                 <div className="bg-cyan-500/10 rounded-lg p-4 border border-cyan-500/20 text-center">
-                  <div className="text-2xl font-bold text-cyan-400">59%</div>
+                  <div className="text-2xl font-bold text-cyan-400">50%</div>
                   <div className="text-xs text-gray-400">Cheaper than FF Pro</div>
                 </div>
                 <div className="bg-green-500/10 rounded-lg p-4 border border-green-500/20 text-center">
-                  <div className="text-2xl font-bold text-green-400">$141</div>
+                  <div className="text-2xl font-bold text-green-400">$120</div>
                   <div className="text-xs text-gray-400">Annual savings</div>
                 </div>
                 <div className="bg-purple-500/10 rounded-lg p-4 border border-purple-500/20 text-center">
@@ -581,7 +582,7 @@ export default function FounderDashboard() {
                 <div className="space-y-4">
                   {[
                     { l: 'MRR', k: 'mrr', v: metrics.mrr, max: 50000, p: '$' },
-                    { l: 'Pro Price/yr', k: 'proPrice', v: metrics.proPrice, max: 200, p: '$' },
+                    { l: 'Plus Price/mo', k: 'plusPrice', v: metrics.plusPrice, max: 50, p: '$' },
                     { l: 'Conversion %', k: 'conversionRate', v: metrics.conversionRate, max: 50, s: '%' },
                   ].map((item) => (
                     <div key={item.k} className="space-y-1">
@@ -624,7 +625,7 @@ export default function FounderDashboard() {
                 { l: 'Market Penetration', v: `${calculated.marketPenetration}%` },
                 { l: 'vs LogTen Users', v: `${((metrics.totalUsers / 120000) * 100).toFixed(1)}%` },
                 { l: 'Users to 1% Market', v: Math.round(verifiedMarket.pilots.certificated * 0.01).toLocaleString() },
-                { l: 'ARR at 1% (10% paid)', v: `$${((Math.round(verifiedMarket.pilots.certificated * 0.01) * 0.1 * metrics.proPrice) / 1000).toFixed(0)}K` },
+                { l: 'ARR at 1% (10% paid)', v: `$${((Math.round(verifiedMarket.pilots.certificated * 0.01) * 0.1 * metrics.plusPrice * 12) / 1000).toFixed(0)}K` },
               ].map((item, i) => (
                 <div key={i} className="bg-gray-900/50 rounded-xl p-4 border border-gray-800">
                   <div className="text-gray-400 text-sm">{item.l}</div>
@@ -690,7 +691,7 @@ export default function FounderDashboard() {
                 </table>
               </div>
               <div className="mt-4 text-xs text-yellow-500 flex items-center gap-1">
-                <AlertTriangle className="w-3 h-3" />Assumes 150 students/school, 10% conversion, $49/yr blended
+                <AlertTriangle className="w-3 h-3" />Assumes 150 students/school, 10% conversion, $10/mo ($120/yr) Plus tier
               </div>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
@@ -809,7 +810,7 @@ export default function FounderDashboard() {
                       { n: '1% Market', u: Math.round(verifiedMarket.pilots.certificated * 0.01) },
                     ].map((s, i) => {
                       const paid = Math.round(s.u * 0.1);
-                      const arr = paid * metrics.proPrice;
+                      const arr = paid * metrics.plusPrice * 12;
                       return (
                         <tr key={i} className="border-b border-gray-800/50">
                           <td className="py-3 text-gray-300">{s.n}</td>
@@ -830,7 +831,7 @@ export default function FounderDashboard() {
               <div className="grid md:grid-cols-4 gap-4">
                 {[
                   { l: 'CAC (B2B)', v: '$0', n: 'School provides', c: 'green' },
-                  { l: 'LTV (3yr)', v: `$${metrics.proPrice * 3}`, n: '3yr × price', c: 'cyan' },
+                  { l: 'LTV (3yr)', v: `$${metrics.plusPrice * 12 * 3}`, n: '3yr × price', c: 'cyan' },
                   { l: 'LTV:CAC', v: '∞', n: 'B2B model', c: 'purple' },
                   { l: 'Gross Margin', v: '~85%', n: 'Estimate', c: 'orange' },
                 ].map((item, i) => (
